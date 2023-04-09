@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="study.demo.mapper.qna.QnAMapper">
+    <insert id="writeQuestion" parameterType="study.demo.common.CustomMap" >
+        <![CDATA[
+            INSERT INTO Question (title, content, writerId, createdAt, updatedAt)
+            VALUES (#{title}, #{content}, #{writer}, #{createdAt}, #{updatedAt})
+        ]]>
+    </insert>
+    <insert id="writeAnswer" parameterType="study.demo.common.CustomMap">
+        <![CDATA[
+            INSERT INTO Answer (questionId, content, writerId, createdAt, updatedAt)
+            VALUES (#{questionId}, #{content}, #{writerId}, #{createdAt}, #{updatedAt})
+        ]]>
+    </insert>
+    <delete id="deleteQuestion" >
+        <![CDATA[
+            DELETE FROM Question
+            WHERE SCHEDULE_NO = #{questionId};
+        ]]>
+    </delete>
+    <delete id="deleteAnswer">
+        <![CDATA[
+            DELETE FROM Answer
+            WHERE SCHEDULE_NO = #{answerId};
+        ]]>
+    </delete>
+
+    <select id="getAllQuestion" resultType="study.demo.common.CustomMap">
+        <![CDATA[
+            SELECT id, title, content, writerId, createdAt, updatedAt
+            FROM Question
+            ORDER BY id DESC
+        ]]>
+    </select>
+    <select id="getAnswersByQuestionId" resultType="study.demo.common.CustomMap">
+        <![CDATA[
+            SELECT id, questionId, content, writerId, createdAt, updatedAt
+            FROM Answer
+            WHERE questionId = #{questionId}
+        ]]>
+    </select>
+    <update id="updateAnswer" parameterType="study.demo.common.CustomMap">
+        <![CDATA[
+            UPDATE INTO Answer (questionId, content, writerId, createdAt, updatedAt)
+            VALUES (#{questionId}, #{content}, #{writerId}, #{createdAt}, #{updatedAt})
+            WHERE answerId = #{answerId};
+        ]]>
+    </update>
+    <update id="updateQuestion" parameterType="study.demo.common.CustomMap">
+        <![CDATA[
+            UPDATE INTO Question (title, content, writerId, createdAt, updatedAt)
+            VALUES (#{title}, #{content}, #{writer}, #{createdAt}, #{updatedAt})
+            WHERE questionId = #{questionId};
+        ]]>
+    </update>
+</mapper>
