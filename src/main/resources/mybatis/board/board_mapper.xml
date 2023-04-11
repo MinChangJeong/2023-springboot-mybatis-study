@@ -2,6 +2,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="study.demo.mapper.board.BoardMapper">
+<mapper namespace="study.demo.mapper.BoardMapper">
+    <insert id="createBoard" parameterType="study.demo.dto.BoardDto" >
+        INSERT INTO Board (title, content, writer)
+        VALUES (#{title}, #{content}, #{writer})
+    </insert>
 
+    <select id="findBoardAll" resultType="study.demo.domain.Board">
+        SELECT board_id, title, content, writer
+        FROM Board
+        ORDER BY board_id DESC
+    </select>
+
+    <select id="findBoardById" parameterType="Long" resultType="study.demo.domain.Board">
+        SELECT board_id, title, content, writer
+        FROM Board
+        WHERE board_id = #{board_id}
+    </select>
+
+    <update id="updateBoard" parameterType="study.demo.domain.Board">
+        UPDATE Board
+        SET title = #{title}, content = #{content}, writer = #{writer}
+        WHERE board_id = #{board_id};
+    </update>
+
+
+    <delete id="deleteBoard" parameterType="Long">
+        DELETE FROM Board
+        WHERE board_id = #{board_id};
+    </delete>
 </mapper>
+
