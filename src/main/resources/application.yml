@@ -3,9 +3,9 @@ spring:
   datasource:
     hikari:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      jdbc-url: ${datasource-url}
-      username: ${datasource-username}
-      password: ${datasource-password}
+      jdbc-url: jdbc:mysql://localhost:3306/notice?characterEncoding=UTF-8&serverTimezone=UTC
+      username: root
+      password: a0967312
 
   session:
     jdbc:
