@@ -15,7 +15,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 public class Comment {
     private Long comment_id;
-    private Long boardId;
+    private Long board_id;
     private String content;
     private String writer;
 }
