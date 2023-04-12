@@ -17,7 +17,7 @@ import study.demo.service.NoticeService;
 @RequiredArgsConstructor
 public class NoticeController {
 
-    @Resource(name="")
+    @Resource(name="study.demo.service.NoticeService")
     NoticeService noticeService;
 
     @RequestMapping("/list")

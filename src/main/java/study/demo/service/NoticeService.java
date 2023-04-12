@@ -1,7 +1,6 @@
 package study.demo.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import study.demo.domain.Notice;
 import study.demo.domain.NoticeResponse;
@@ -10,11 +9,11 @@ import study.demo.mapper.NoticeMapper;
 import javax.annotation.Resource;
 import java.util.List;
 
-@Service()
+@Service("study.demo.service.NoticeService")
 @RequiredArgsConstructor
 public class NoticeService {
 
-    @Resource()
+    @Resource(name = "study.demo.mapper.NoticeMapper")
     NoticeMapper noticeMapper;
 
     public List<Notice> noticeListService() throws Exception{
