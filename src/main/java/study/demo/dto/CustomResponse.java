@@ -9,6 +9,6 @@ import lombok.*;
 @AllArgsConstructor
 public class CustomResponse {
     private int status;
-    private Object data;
+    private String message;
 
 }

@@ -20,10 +20,10 @@
         WHERE board_id = #{board_id}
     </select>
 
-    <update id="updateBoard" parameterType="study.demo.domain.Board">
+    <update id="updateBoard" parameterType="map">
         UPDATE Board
-        SET title = #{title}, content = #{content}, writer = #{writer}
-        WHERE board_id = #{board_id};
+        SET title = #{boardDto.title}, content = #{boardDto.content}, writer = #{boardDto.writer}
+        WHERE board_id = #{boardId};
     </update>
 
 

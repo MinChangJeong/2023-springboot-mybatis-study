@@ -6,6 +6,7 @@ import study.demo.dto.BoardDto;
 import study.demo.dto.CommentDto;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface BoardMapper {
@@ -14,6 +15,6 @@ public interface BoardMapper {
     Board findBoardById(Long boardId);
     void createBoard(BoardDto boardDto);
     void deleteBoard(Long boardId);
-    void updateBoard(Board board);
+    void updateBoard(Map<String, Object> paramMap);
 
 }
