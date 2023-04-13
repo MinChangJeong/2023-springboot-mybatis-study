@@ -1,5 +1,6 @@
 package study.demo.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,14 +15,15 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/board")
 public class BoardController {
     private final BoardService boardService;
 
-    @Autowired
-    public BoardController(BoardService boardService) {
-        this.boardService = boardService;
-    }
+//    @Autowired
+//    public BoardController(BoardService boardService) {
+//        this.boardService = boardService;
+//    }
 
     // 게시글 전체 조회
     @GetMapping("/all")
